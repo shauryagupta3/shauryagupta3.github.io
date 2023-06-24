@@ -14,7 +14,7 @@ nav {
   justify-content: space-around;
   align-items: center;
   height: 80px;
-  background-color: rgb(5, 5, 90);
+  background-color: rgb(13 13 78);
 }
 
 nav ul {
@@ -56,6 +56,10 @@ nav ul li a:hover {
   font-size: 2.5rem;
 }
 
+.leftSection .button {
+  padding: 10px;
+}
+
 .rightSection img {
   width: 70%;
 }
@@ -64,16 +68,82 @@ nav ul li a:hover {
   color: rgb(146, 59, 228);
 }
 
+.text-gray {
+  color: gray;
+}
+
 #element {
   color: rgb(146, 59, 228);
 }
-.secondSection{
-    max-width: 80vw;
-    margin: auto;
+.secondSection {
+  max-width: 80vw;
+  margin: auto;
+  height: 80vh;
 }
-main hr{
-    border: 0;
-    background: rgb(155, 155, 210);
-    height: 1.2px;
-    margin: 40px 84px ;
+main hr {
+  border: 0;
+  background: rgb(155, 155, 210);
+  height: 1.2px;
+  margin: 40px 84px;
+}
+
+.secondSection .box {
+  background: white;
+  width: 80vw;
+  height: 2px;
+  margin: 80px 0;
+  display: flex;
+}
+
+.secondSection .vertical {
+  height: 93px;
+  width: 1px;
+  background: white;
+  margin: 0 150px;
+}
+
+.img-top img {
+  width: 25px;
+  position: relative;
+  top: -45px;
+  right: 12px;
+}
+
+.text-vertical {
+  position: relative;
+  top: 50px;
+  width: 150px;
+}
+
+.text-desc {
+  position: relative;
+  top: 58px;
+  width: 150px;
+  font-size: 9px;
+  color: gray;
+}
+
+footer {
+  background-color: rgb(5, 5, 17);
+}
+
+.footer {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 23px 122px;
+}
+
+.footer ul {
+  list-style: none;
+  text-decoration: none;
+}
+
+.footer > div {
+  width: 200px;
+}
+
+.text-center {
+  text-align: center;
+  color: gray;
+  padding: 12px 0;
 }
