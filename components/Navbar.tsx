@@ -17,41 +17,40 @@ import {
 import * as React from "react";
 import { cn } from "@/lib/utils";
 
-const linksInNav : {title:string,href:string,description:string}[] = [
+const linksInNav: { title: string; href: string; description: string }[] = [
   {
-    title:"Linkedin",
-    href:"https://in.linkedin.com/in/shauryagupta3gg",
-    description:"linkedin profile"
+    title: "Linkedin",
+    href: "https://in.linkedin.com/in/shauryagupta3gg",
+    description: "linkedin profile",
   },
   {
-    title:"Github",
-    href:"https://github.com/shauryagupta3",
-    description:"Github profile"
-  }
-]
-
+    title: "Github",
+    href: "https://github.com/shauryagupta3",
+    description: "Github profile",
+  },
+];
 
 export default function Navbar() {
   return (
     <div className="flex justify-between px-4 py-2 items-center">
-      <h2>NavBar</h2>
+      <Link href={"/"} className="text-xl">
+        <h2>Home</h2>
+      </Link>
       <NavigationMenu>
         <NavigationMenuList>
           <NavigationMenuItem>
-            <NavigationMenuTrigger>Links</NavigationMenuTrigger>
-            <NavigationMenuContent>
-            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-              {linksInNav.map((component) => (
-                <ListItem
-                  key={component.title}
-                  title={component.title}
-                  href={component.href}
-                >
-                  {component.description}
-                </ListItem>
-              ))}
-            </ul>
-            </NavigationMenuContent>
+            <Link href="/blog" legacyBehavior passHref>
+              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                About
+              </NavigationMenuLink>
+            </Link>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <Link href="/blog" legacyBehavior passHref>
+              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                Projects
+              </NavigationMenuLink>
+            </Link>
           </NavigationMenuItem>
           <NavigationMenuItem>
             <Link href="/blog" legacyBehavior passHref>
@@ -59,6 +58,22 @@ export default function Navbar() {
                 Blog
               </NavigationMenuLink>
             </Link>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <NavigationMenuTrigger>Contact</NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+                {linksInNav.map((component) => (
+                  <ListItem
+                    key={component.title}
+                    title={component.title}
+                    href={component.href}
+                  >
+                    {component.description}
+                  </ListItem>
+                ))}
+              </ul>
+            </NavigationMenuContent>
           </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>
@@ -89,6 +104,6 @@ const ListItem = React.forwardRef<
         </a>
       </NavigationMenuLink>
     </li>
-  )
-})
-ListItem.displayName = "ListItem"
+  );
+});
+ListItem.displayName = "ListItem";

@@ -1,9 +1,16 @@
-export default function Blog() {
+import { fetchProducts } from "@/lib/data";
+import { productInterface, productsInterface } from "@/lib/interfaces";
+
+export default async function Blog() {
+  const products: productInterface[] = await fetchProducts();
   return (
     <div>
-      <main className="">
-        <p>blogs</p>
-      </main>
+      <p>blogs</p>
+      <ul>
+        {products.map((e) => {
+          return <li key={e.id}>{e.title}</li>;
+        })}
+      </ul>
     </div>
   );
 }
