@@ -1,14 +1,19 @@
-import { fetchProducts } from "@/lib/data";
-import { productInterface, productsInterface } from "@/lib/interfaces";
+import { productInterface, BlogPostsInterface } from "@/lib/interfaces";
+import { getSortedBlogsData } from "@/lib/blogs";
+import Link from "next/link";
 
 export default async function Blog() {
-  const products: productInterface[] = await fetchProducts();
+  const blogs: BlogPostsInterface = getSortedBlogsData();
   return (
     <div>
       <p>blogs</p>
       <ul>
-        {products.map((e) => {
-          return <li key={e.id}>{e.title}</li>;
+        {blogs.map((e) => {
+          return (
+            <li key={e.id}>
+              <Link href={`/blog/${e.id}`}>{e.title}</Link>
+            </li>
+          );
         })}
       </ul>
     </div>

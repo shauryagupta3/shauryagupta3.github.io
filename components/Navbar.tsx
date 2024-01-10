@@ -32,7 +32,7 @@ const linksInNav: { title: string; href: string; description: string }[] = [
 
 export default function Navbar() {
   return (
-    <div className="flex justify-between px-4 py-2 items-center">
+    <div className="flex justify-between px-6 py-2 items-center border-b-2 border-zinc-800">
       <Link href={"/"} className="text-xl">
         <h2>Home</h2>
       </Link>
