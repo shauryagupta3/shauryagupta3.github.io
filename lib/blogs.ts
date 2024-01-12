@@ -17,7 +17,9 @@ export function getSortedBlogsData(): BlogPostInterface[] {
     const blogPost: BlogPostInterface = {
       title: matterResult.data.title,
       date: matterResult.data.date,
-      id: id,
+      slug: matterResult.data.title.toLowerCase().split(' ').join('-'),
+      id,
+      content: matterResult.content,
     };
 
     return blogPost;

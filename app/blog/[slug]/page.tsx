@@ -4,11 +4,12 @@ import { BlogPostInterface } from "@/lib/interfaces";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-export default async function Slug({ params }: { params: { id: string } }) {
+export default async function Slug({ params }: { params: { slug: string } }) {
   const all_blogs: BlogPostInterface[] = getSortedBlogsData();
-  const blogID: string = params.id;
+  const blogSlug: string = params.slug;
 
-  const blog = all_blogs.find((e) => e.id === blogID);
+  const blog = all_blogs.find((e) => e.slug === blogSlug);
+  console.log(blog)
   if (!blog) {
     return notFound();
   }
