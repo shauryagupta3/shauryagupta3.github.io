@@ -5,7 +5,7 @@ import { BlogPostInterface } from "./interfaces";
 
 const blogsDir = path.join(process.cwd(), "db/blogs");
 
-export function getSortedBlogsData(): BlogPostInterface[] {
+export function getSortedBlogsData(): BlogPostsInterface {
   const filenames = fs.readdirSync(blogsDir);
   const allBlogs = filenames.map((filename) => {
     const id = filename.replace(/\.md$/, ""); // remove .md

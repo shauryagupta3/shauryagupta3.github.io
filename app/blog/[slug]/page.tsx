@@ -1,27 +1,37 @@
-import Blog from "@/components/blog";
 import { getSortedBlogsData } from "@/lib/blogs";
-import { BlogPostInterface } from "@/lib/interfaces";
+import { BlogPostInterface, BlogPostsInterface } from "@/lib/interfaces";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { remark } from "remark";
+import html from "remark-html"
+
 
 export default async function Slug({ params }: { params: { slug: string } }) {
-  const all_blogs: BlogPostInterface[] = getSortedBlogsData();
   const blogSlug: string = params.slug;
-
-  const blog = all_blogs.find((e) => e.slug === blogSlug);
-  console.log(blog)
+  const allBlogs: BlogPostsInterface = getSortedBlogsData()
+  const blog = allBlogs.find((e) => e.slug === blogSlug);
   if (!blog) {
     return notFound();
   }
-
+  const contentHTML: string = await getBlogContent(blog)
   return (
     <div className="flex w-full flex-col items-center justify-center">
       <div className="max-w-screen-md">
-        <Blog blog={blog} />
+        <title>{blog.title}</title>
+        <br />
+        <p className="text-center text-6xl">{blog.title}</p>
+        <br />
+        <div dangerouslySetInnerHTML={{ __html: contentHTML }} />
       </div>
     </div>
   );
 }
+async function getBlogContent(blog: BlogPostInterface): Promise<string> {
+  const processedContent = await remark().use(html).process(blog.content)
+  const content = processedContent.toString()
+  return content
+}
+
 
 export const generateMetadata = ({
   params,

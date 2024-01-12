@@ -2,16 +2,13 @@ import { BlogPostsInterface } from "@/lib/interfaces";
 import { getSortedBlogsData } from "@/lib/blogs";
 import Link from "next/link";
 
-export default async function Blog() {
-  const blogs: BlogPostsInterface = getSortedBlogsData();
-  const hello: String = "hello"
-  console.log(blogs)
+export default function Page() {
+  const allBlogs: BlogPostsInterface = getSortedBlogsData()
   return (
     <div>
       <p>blogs</p>
-      <p>{hello}</p>
       <ul>
-        {blogs.map((e) => {
+        {allBlogs.map((e) => {
           return (
             <li key={e.id}>
               <Link href={`/blog/${e.slug}`}>{e.title}</Link>
