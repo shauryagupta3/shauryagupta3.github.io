@@ -2,9 +2,8 @@ import { getSortedBlogsData } from "@/lib/blogs";
 import { BlogPostInterface, BlogPostsInterface } from "@/lib/interfaces";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { remark } from "remark";
-import html from "remark-html"
-
+import { marked } from "marked";
+import DOMPurify from "isomorphic-dompurify"
 
 export default async function Slug({ params }: { params: { slug: string } }) {
   const blogSlug: string = params.slug;
@@ -13,7 +12,21 @@ export default async function Slug({ params }: { params: { slug: string } }) {
   if (!blog) {
     return notFound();
   }
-  const contentHTML: string = await getBlogContent(blog)
+
+  marked.use({
+    async: true,
+    pedantic: false,
+    gfm: true,
+    breaks: true,
+  })
+  const contents = await (marked.parse(blog.content.replace(/^[\u200B\u200C\u200D\u200E\u200F\uFEFF]/, "")
+  ))
+
+  var clean_contents: string = ""
+  if (typeof (contents) === "string") {
+    clean_contents = DOMPurify.sanitize(contents)
+  }
+
   return (
     <div className="flex w-full flex-col items-center justify-center">
       <div className="max-w-screen-md">
@@ -21,15 +34,10 @@ export default async function Slug({ params }: { params: { slug: string } }) {
         <br />
         <p className="text-center text-6xl">{blog.title}</p>
         <br />
-        <div dangerouslySetInnerHTML={{ __html: contentHTML }} />
+        <div dangerouslySetInnerHTML={{ __html: clean_contents }} />
       </div>
     </div>
   );
-}
-async function getBlogContent(blog: BlogPostInterface): Promise<string> {
-  const processedContent = await remark().use(html).process(blog.content)
-  const content = processedContent.toString()
-  return content
 }
 
 
