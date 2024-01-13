@@ -122,7 +122,7 @@ With a reference later in the document defining the URL location:
 
 [id]: https://octodex.github.com/images/dojocat.jpg  "The Dojocat"
 
-`using System.IO.Compression;
+```using System.IO.Compression;
 
 #pragma warning disable 414, 3021
 
@@ -137,7 +137,32 @@ namespace MyApplication
             return new List<int>(new int[] { 1, 2, 3 })
         }
     }
-}`
+}
+
+```export const generateMetadata = ({
+    params,
+    }: {
+  params: { id: string };
+    }): Metadata => {
+    const all_blogs: BlogPostInterface[] = getSortedBlogsData();
+    const blogID: string = params.id;
+
+    const blog = all_blogs.find((e) => e.id === blogID);
+    if (!blog) {
+    return {
+      title: `Blog not found`,
+      description: ``,
+     };
+    }
+
+  return {
+    title: blog.title,
+  };
+};
+
+# Example
+
+```<div class="foo">Hello, World!</div>```
 
 Colons can be used to align columns.
 
