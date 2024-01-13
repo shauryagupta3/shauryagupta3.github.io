@@ -3,25 +3,31 @@ import { getSortedBlogsData } from "@/lib/blogs";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ChevronRightIcon, ChevronLeftIcon } from "@radix-ui/react-icons";
+import { notFound } from "next/navigation";
 
 export default function Page({ searchParams, }: { searchParams: { [key: string]: string | string[] | undefined } }) {
   const allBlogs: BlogPostsInterface = getSortedBlogsData()
   const page = searchParams[`page`] ?? `1`
-  const per_page = 2
+  const per_page = 5
   const totalPages: number = Math.ceil(allBlogs.length / per_page)
+  if (Number(page) > totalPages) {
+    return notFound()
+  }
 
+  // TODO do css for this page
   const start = (Number(page) - 1) * Number(per_page)
   const end = start + Number(per_page)
-
   const data = allBlogs.slice(start, end)
   return (
-    <div>
+    <div className="flex py-4 flex-col justify-center items-center">
       <ul>
         {data.map(e => (
-          <li key={e.id}><Link href={`/blog/${e.slug}`}>{e.title}</Link></li>
+          <li key={e.id} className="border rounded-lg my-2 p-6"><Link href={`/blog/${e.slug}`}><h2 className="text-2xl sm:text-3xl pb-2 font-bold">{e.title}</h2>
+          <hr className=""/><p>{e.subtitle}</p>
+          </Link></li>
         ))}
       </ul>
-      <div>
+      <div className="flex gap-2">
 
         {Number(page) != 1 ? <Button variant="outline" size="icon" asChild>
           <Link href={`/blog?page=${Number(page) - 1!}`}>

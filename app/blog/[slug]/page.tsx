@@ -13,7 +13,7 @@ export default async function Slug({ params }: { params: { slug: string } }) {
   }
   return (
     <div className="flex w-full flex-col items-center justify-center">
-      <div className="max-w-screen-md">
+      <div className="max-w-[90%] sm:max-w-screen-md">
         <article className="prose px-2 prose-sm lg:prose-xl dark:prose-invert"><Markdown>{blog.content}</Markdown></article>
       </div>
     </div>

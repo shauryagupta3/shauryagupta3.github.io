@@ -3,6 +3,7 @@ export interface BlogPostInterface {
   date: string;
   id: string;
   slug: string;
+  subtitle:string;
   content: string;
 }
 

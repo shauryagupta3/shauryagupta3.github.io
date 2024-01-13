@@ -1,5 +1,6 @@
 ---
 title: 'github example for markdown'
+subtitle: "github example for markdown which i copied from random repo."
 date: '12-1-2024'
 ---
 

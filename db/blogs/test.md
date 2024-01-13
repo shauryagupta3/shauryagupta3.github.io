@@ -1,5 +1,6 @@
 ---
 title: 'Test Post'
+subtitle: "Test post made to check if everything is working."
 date: '10-01-2024'
 ---
 

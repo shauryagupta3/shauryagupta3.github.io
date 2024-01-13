@@ -1,7 +1,7 @@
 import fs from "fs";
 import matter from "gray-matter";
 import path from "path";
-import { BlogPostInterface } from "./interfaces";
+import { BlogPostInterface, BlogPostsInterface } from "./interfaces";
 
 const blogsDir = path.join(process.cwd(), "db/blogs");
 
@@ -19,6 +19,7 @@ export function getSortedBlogsData(): BlogPostsInterface {
       date: matterResult.data.date,
       slug: matterResult.data.title.toLowerCase().split(' ').join('-'),
       id,
+      subtitle:matterResult.data.subtitle,
       content: matterResult.content,
     };
 
