@@ -3,6 +3,7 @@ import { BlogPostInterface, BlogPostsInterface } from "@/lib/interfaces";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Markdown from "markdown-to-jsx";
+import Head from "next/head";
 
 export function generateStaticParams() {
   const allBlogs: BlogPostsInterface = getSortedBlogsData();
@@ -18,6 +19,9 @@ export default async function Slug({ params }: { params: { slug: string } }) {
   }
   return (
     <div className="flex w-full flex-col items-center justify-center">
+      <Head>
+        <title>{blog.title}</title>
+      </Head>
       <div className="max-w-[90%] sm:max-w-screen-md">
         <article className="prose px-2 prose-sm lg:prose-xl dark:prose-invert">
           <Markdown>{blog.content}</Markdown>
