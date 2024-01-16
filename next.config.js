@@ -10,13 +10,14 @@ const nextConfig = {
    * @see https://nextjs.org/docs/pages/building-your-application/deploying/static-exports
    */
   output: "export",
+  distDir: "dist",
 
   /**
    * Set base path. This is usually the slug of your repository.
    *
    * @see https://nextjs.org/docs/app/api-reference/next-config-js/basePath
    */
-  basePath: "/shauryagupta3.github.io",
+  //basePath: "/shauryagupta3.github.io",
 
   /**
    * Disable server-based image optimization. Next.js does not support
