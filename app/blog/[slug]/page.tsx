@@ -30,12 +30,12 @@ export default async function Slug({ params }: { params: { slug: string } }) {
 export const generateMetadata = ({
   params,
 }: {
-  params: { id: string };
+  params: { slug: string };
 }): Metadata => {
   const all_blogs: BlogPostInterface[] = getSortedBlogsData();
-  const blogID: string = params.id;
+  const blogSlug: string = params.slug;
 
-  const blog = all_blogs.find((e) => e.id === blogID);
+  const blog = all_blogs.find((e) => e.slug === blogSlug);
   if (!blog) {
     return {
       title: `Blog not found`,
