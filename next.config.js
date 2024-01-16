@@ -3,6 +3,7 @@
 /**
  * @type {import('next').NextConfig}
  **/
+
 const nextConfig = {
   /**
    * Enable static exports for the App Router.
@@ -17,7 +18,7 @@ const nextConfig = {
    *
    * @see https://nextjs.org/docs/app/api-reference/next-config-js/basePath
    */
-  //basePath: "/shauryagupta3.github.io",
+  basePath: "/shauryagupta3.github.io",
 
   /**
    * Disable server-based image optimization. Next.js does not support
