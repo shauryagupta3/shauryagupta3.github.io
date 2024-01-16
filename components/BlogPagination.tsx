@@ -1,47 +1,58 @@
-"use client"
+"use client";
 
-import {
-  Pagination,
-  PaginationContent,
-  PaginationEllipsis,
-  PaginationItem,
-  PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
-} from "@/components/ui/pagination"
-import { usePathname, useSearchParams } from "next/navigation"
+import { BlogPostsInterface } from "@/lib/interfaces";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { ChevronRightIcon, ChevronLeftIcon } from "@radix-ui/react-icons";
+import { notFound } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 
-
-export default function BlogPagination({ totalPages }: { totalPages: number }) {
-  const searchParams = useSearchParams()
-  const currentPage = Number(searchParams.get('page')) || 1
-
-  const pages = []
-  for (let i = 1; i < totalPages + 1; i++) {
-    const page: { url: string } = { url: `blog?page=${i}` }
-    pages.push(page)
+export default function BlogPagination({
+  allBlogs,
+}: {
+  allBlogs: BlogPostsInterface;
+}) {
+  const searchParams = useSearchParams();
+  const page = searchParams.get("page") ?? `1`;
+  const per_page = 5;
+  const totalPages: number = Math.ceil(allBlogs.length / per_page);
+  if (Number(page) > totalPages) {
+    return notFound();
   }
 
+  // TODO do css for this page
+  const start = (Number(page) - 1) * Number(per_page);
+  const end = start + Number(per_page);
+  const data = allBlogs.slice(start, end);
   return (
-    <Pagination>
-      <PaginationContent>
-        <PaginationItem>
-          <PaginationPrevious href={`blog?page=${currentPage - 1 != 0 ? currentPage - 1 : 1}`} />
-        </PaginationItem>
-
-        {/*pages.map((e, i) => (
-          <PaginationItem key={i}>
-            <PaginationLink href={e.url}>{i + 1}</PaginationLink>
-          </PaginationItem>
-        ))*/}
-
-        <PaginationItem>
-          <PaginationEllipsis />
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationNext href={`blog?page=${currentPage + 1 != totalPages ? currentPage + 1 : totalPages}`} />
-        </PaginationItem>
-      </PaginationContent>
-    </Pagination>
-  )
+    <div className="flex py-4 flex-col justify-center items-center">
+      <ul>
+        {data.map((e) => (
+          <li key={e.id} className="border rounded-lg my-2 p-6">
+            <Link href={`/blog/${e.slug}`}>
+              <h2 className="text-2xl sm:text-3xl pb-2 font-bold">{e.title}</h2>
+              <hr className="" />
+              <p>{e.subtitle}</p>
+            </Link>
+          </li>
+        ))}
+      </ul>
+      <div className="flex gap-2">
+        {Number(page) != 1 ? (
+          <Button variant="outline" size="icon" asChild>
+            <Link href={`/blog?page=${Number(page) - 1!}`}>
+              <ChevronLeftIcon className="h-4 w-4" />
+            </Link>
+          </Button>
+        ) : null}
+        {Number(page) != totalPages ? (
+          <Button variant="outline" size="icon" asChild>
+            <Link href={`/blog?page=${Number(page) + 1}`}>
+              <ChevronRightIcon className="h-4 w-4" />
+            </Link>
+          </Button>
+        ) : null}
+      </div>
+    </div>
+  );
 }
