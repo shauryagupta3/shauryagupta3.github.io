@@ -10,23 +10,18 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  NavigationMenuViewport,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
   DropdownMenuGroup,
   DropdownMenuShortcut,
-  DropdownMenuSub,
-  DropdownMenuPortal
-  , DropdownMenuSubTrigger, DropdownMenuSubContent
-} from "@/components/ui/dropdown-menu"
-Button
+} from "@/components/ui/dropdown-menu";
+Button;
 import * as React from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
@@ -46,7 +41,7 @@ const linksInNav: { title: string; href: string; description: string }[] = [
 
 export default function Navbar() {
   return (
-    <div className="flex justify-between px-6 py-2 items-center border-b-2 border-zinc-800">
+    <div className="flex justify-between px-6 py-2 sm:my-2 sm:mx-4 items-center border rounded-lg border-zinc-600">
       <Link href={"/"} className="text-xl">
         <h2>Home</h2>
       </Link>
@@ -148,7 +143,7 @@ const ListItem = React.forwardRef<
           ref={ref}
           className={cn(
             "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-            className
+            className,
           )}
           {...props}
         >
