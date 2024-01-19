@@ -1,5 +1,4 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { getImagesForTechStack } from "@/lib/images";
 import Image from "next/image";
 
 async function getAvatarUrl() {
@@ -27,7 +26,10 @@ export default async function Home() {
             <h1 className="text-xl font-semibold">I code</h1>
           </div>
         </div>
-        <div id="techstack" className="w-full rounded-xl p-4 border border-zinc-600">
+        <div
+          id="techstack"
+          className="w-full rounded-xl p-4 border border-zinc-600"
+        >
           {" "}
           <h1 className=" text-5xl text-center pb-4">Tech Stack</h1>{" "}
           <ul className="w-full px-4 gap-x-10 grid list-disc  grid-cols-2 sm:grid-cols-4">
