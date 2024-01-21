@@ -53,19 +53,23 @@ export default async function Home() {
             </ul>
           </div>
         </main>
-        <div id="projects" className="w-[90%] sm:max-w-screen-md">
+        <div id="projects" className="mt-8 w-[90%] sm:max-w-screen-md">
           {" "}
-          <h1 className="text-3xl font-bold">Projects</h1>
+          <h1 className="text-4xl font-bold">Projects</h1>
           <div className="my-4 flex flex-col w-full gap-2">
-          <div className="flex flex-col text-center sm:text-start sm:flex-row p-2 justify-between border rounded-xl border-zinc-500">
+            <div className="flex flex-col text-center sm:text-start sm:flex-row p-2 justify-between border rounded-xl border-zinc-500">
               <div className="sm:w-1/2 flex-col h-full justify-between flex">
                 <h1 className="text-3xl font-semibold">Weather App</h1>
                 <div className="flex justify-center sm:justify-start py-2 gap-2">
                   <Button asChild variant={"secondary"}>
-                    <Link href={"https://weather-app-react-a32.pages.dev/"}>Live</Link>
+                    <Link href={"https://weather-app-react-a32.pages.dev/"}>
+                      Live
+                    </Link>
                   </Button>
                   <Button asChild variant={"secondary"}>
-                    <Link href={"https://github.com/shauryagupta3/weather-app"}>Code</Link>
+                    <Link href={"https://github.com/shauryagupta3/weather-app"}>
+                      Code
+                    </Link>
                   </Button>
                 </div>
                 <p>
@@ -106,6 +110,18 @@ export default async function Home() {
               />
             </div>{" "}
           </div>
+        </div>
+        <div
+          id="about"
+          className="p-4 my-4 rounded-xl text-black w-[90%] sm:max-w-screen-md bg-zinc-100"
+        >
+          <h1 className="text-3xl font-semibold">About</h1>
+          <p>
+            Hi i am shauryagupta3 Lorem ipsum dolor sit, amet consectetur
+            adipisicing elit. Doloremque reprehenderit sequi nam perspiciatis
+            nostrum, officia architecto temporibus provident debitis vitae,
+            perferendis sed et repellat deserunt laborum esse doloribus in quam.
+          </p>
         </div>
       </div>
     </>
