@@ -1,5 +1,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import weatherAppImg from "../public/static/images/weather-app.png";
+import LiftSimulation from "../public/static/images/lift-simulation.png";
+import Blackjack from "../public/static/images/blackjack.png";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -78,49 +80,104 @@ export default async function Home() {
                   for better user experience.
                 </p>
               </div>
+              <div className="self-center">
               <Image
                 src={weatherAppImg}
                 alt="weather app image"
                 height={100}
                 width={300}
               />
+              </div>
             </div>{" "}
             <div className="flex flex-col text-center sm:text-start sm:flex-row p-2 justify-between border rounded-xl border-zinc-500">
               <div className="sm:w-1/2 flex-col h-full justify-between flex">
-                <h1 className="text-3xl font-semibold">Weather App</h1>
+                <h1 className="text-3xl font-semibold">Lift Simulation</h1>
                 <div className="flex justify-center sm:justify-start py-2 gap-2">
                   <Button asChild variant={"secondary"}>
-                    <Link href={"/"}>Live</Link>
+                    <Link
+                      href={
+                        "https://shauryagupta3.github.io/lift-simulation-js/"
+                      }
+                    >
+                      Live
+                    </Link>
                   </Button>
                   <Button asChild variant={"secondary"}>
-                    <Link href={"/"}>Code</Link>
+                    <Link
+                      href={
+                        "https://github.com/shauryagupta3/lift-simulation-js"
+                      }
+                    >
+                      Code
+                    </Link>
                   </Button>
                 </div>
                 <p>
-                  A weather forecast app made with React which uses Open weather
-                  api to get data for fetching data. It comes with auto-complete
-                  for better user experience.
+                  A visual simulation of how lift systems works doing calls to
+                  system. Maintaining queues for management of lifts and vivid
+                  animations for better visual representation. This have dynamic
+                  layout user can input number of lifts and floors they want.
                 </p>
               </div>
+            <div className="self-center">
               <Image
-                src={weatherAppImg}
+                src={LiftSimulation}
                 alt="weather app image"
                 height={100}
                 width={300}
               />
+              </div>
+            </div>{" "}
+            <div className="flex flex-col text-center sm:text-start sm:flex-row p-2 justify-between border rounded-xl border-zinc-500">
+              <div className="sm:w-1/2 flex-col h-full justify-between flex">
+                <h1 className="text-3xl font-semibold">BlackJack</h1>
+                <div className="flex justify-center sm:justify-start py-2 gap-2">
+                  <Button asChild variant={"secondary"}>
+                    <Link href={"https://blackjack-js.pages.dev/"}>Live</Link>
+                  </Button>
+                  <Button asChild variant={"secondary"}>
+                    <Link
+                      href={"https://github.com/shauryagupta3/blackjack-game"}
+                    >
+                      Code
+                    </Link>
+                  </Button>
+                </div>
+                <p>
+                  Classic blackjack game implemented with visual cards to be
+                  played.{" "}
+                  <a
+                    href="https://www.wikihow.com/Play-Blackjack"
+                    className="text-blue-600 underline"
+                  >
+                    How to play
+                  </a>
+                  . Also added a casino like betting system if player wins bet
+                  is 2x else bet is gone.
+                </p>
+              </div>
+              <div className="self-center">
+              <Image
+                src={Blackjack}
+                alt="weather app image"
+                height={100}
+                width={300}
+              />
+              </div>
             </div>{" "}
           </div>
         </div>
         <div
           id="about"
-          className="p-4 my-4 rounded-xl text-black w-[90%] sm:max-w-screen-md bg-zinc-100"
+          className="p-4 my-4 rounded-xl text-white bg-zinc-900 w-[90%] sm:max-w-screen-md dark:text-black dark:bg-zinc-100"
         >
-          <h1 className="text-3xl font-semibold">About</h1>
+          <h1 className="text-3xl mb-2 font-semibold">About</h1>
           <p>
-            Hi i am shauryagupta3 Lorem ipsum dolor sit, amet consectetur
-            adipisicing elit. Doloremque reprehenderit sequi nam perspiciatis
-            nostrum, officia architecto temporibus provident debitis vitae,
-            perferendis sed et repellat deserunt laborum esse doloribus in quam.
+            Hello! I&apos;m Shaurya, a BSc CS student at Delhi University. My
+            coding journey spans languages like JS, TS, Golang, C++, Rust and
+            Java. Proficient in databases, different web frameworks and RESTful
+            APIs. I like to solve problems and learn more about Data
+            Structures and Algorithms as well.
           </p>
         </div>
       </div>

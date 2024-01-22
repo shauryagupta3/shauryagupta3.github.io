@@ -10,6 +10,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
+  NavigationMenuViewport,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import {
@@ -40,51 +41,32 @@ const linksInNav: { title: string; href: string; description: string }[] = [
 ];
 
 export default function Navbar() {
-  return (
-    <div className="flex justify-between px-6 py-2 sm:my-2 sm:mx-4 items-center border rounded-lg border-zinc-600">
+const [visible,setVisible] = React.useState(true)
+const [prevScrollPos, setPrevScrollPos] = React.useState(0)
+
+const handleScroll = () => {
+    const currentScrollPos = window.scrollY
+    if(currentScrollPos > prevScrollPos){
+        setVisible(false)
+    }else{
+        setVisible(true)
+    }
+
+    setPrevScrollPos(currentScrollPos)
+}
+
+React.useEffect( () => {
+    window.addEventListener('scroll', handleScroll);
+
+    return () => window.removeEventListener('scroll', handleScroll)
+})
+
+  return (<nav className={`w-full flex justify-center sticky z-50 ${visible ? 'top-0' : ''} bg-inherit transition duration-1000 ease-in-out`}>
+    <div className="flex justify-between w-[95%] m-4 p-2 items-center border rounded-lg border-zinc-600">
       <Link href={"/"} className="text-xl">
-        <h2>Home</h2>
+        <h2 className="font-semibold">Home</h2>
       </Link>
-      <div className="sm:hidden">
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="outline">Menu</Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent className="w-56">
-            <DropdownMenuGroup>
-              <DropdownMenuItem>
-                About
-                <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                Projects
-                <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                Blogs
-                <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
-              </DropdownMenuItem>
-            </DropdownMenuGroup>
-            <DropdownMenuSeparator />
-            <DropdownMenuGroup>
-              <DropdownMenuItem>Connect</DropdownMenuItem>
-              <DropdownMenuItem>
-                Github
-                <DropdownMenuShortcut>⌘+T</DropdownMenuShortcut>
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                LinkedIn
-                <DropdownMenuShortcut>⌘+T</DropdownMenuShortcut>
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                New Team
-                <DropdownMenuShortcut>⌘+T</DropdownMenuShortcut>
-              </DropdownMenuItem>
-            </DropdownMenuGroup>
-          </DropdownMenuContent>
-        </DropdownMenu>
-      </div>
-      <div className="hidden sm:block">
+      <div className="hidden md:block">
         <NavigationMenu>
           <NavigationMenuList>
             <NavigationMenuItem>
@@ -125,10 +107,21 @@ export default function Navbar() {
               </NavigationMenuContent>
             </NavigationMenuItem>
           </NavigationMenuList>
+          <NavigationMenuViewport />
         </NavigationMenu>
       </div>
-      <ModeToggle />
+      <div className="flex gap-2">
+        <ModeToggle />
+        <div className="block sm:hidden">
+        <Button variant={"outline"}>Menu</Button>
+        <ul className="absolute w-full border-box flex flex-col bg-red-700">
+          <li>about</li>
+          <li>blog</li>
+        </ul>
+        </div>
+      </div>
     </div>
+    </nav>
   );
 }
 
@@ -143,7 +136,7 @@ const ListItem = React.forwardRef<
           ref={ref}
           className={cn(
             "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-            className,
+            className
           )}
           {...props}
         >
