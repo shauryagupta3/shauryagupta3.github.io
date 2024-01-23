@@ -13,19 +13,10 @@ import {
   NavigationMenuViewport,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-  DropdownMenuGroup,
-  DropdownMenuShortcut,
-} from "@/components/ui/dropdown-menu";
-Button;
 import * as React from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
+import { HamburgerMenuIcon } from "@radix-ui/react-icons";
 
 const linksInNav: { title: string; href: string; description: string }[] = [
   {
@@ -40,9 +31,33 @@ const linksInNav: { title: string; href: string; description: string }[] = [
   },
 ];
 
+const linksInNavMobile : {title:string,href:string}[] = [
+{
+  title:"Projects",
+  href:"/#projects"
+},
+{
+  title:"About",
+  href:"/#about"
+},
+{
+  title:"Blog",
+  href:"/blog"
+},
+{
+  title:"Linkedin",
+  href:"https://in.linkedin.com/in/shauryagupta3gg"
+},
+{
+  title:"Github",
+  href:"https://github.com/shauryagupta3"
+},
+]
+
 export default function Navbar() {
 const [visible,setVisible] = React.useState(true)
 const [prevScrollPos, setPrevScrollPos] = React.useState(0)
+const [show,setShow] = React.useState(false)
 
 const handleScroll = () => {
     const currentScrollPos = window.scrollY
@@ -113,10 +128,11 @@ React.useEffect( () => {
       <div className="flex gap-2">
         <ModeToggle />
         <div className="block sm:hidden">
-        <Button variant={"outline"}>Menu</Button>
-        <ul className="absolute w-full border-box flex flex-col bg-red-700">
-          <li>about</li>
-          <li>blog</li>
+        <Button onClick={()=>(setShow(!show))} variant={"secondary"}><HamburgerMenuIcon /></Button>
+        <ul className={`${show ? 'flex' : 'hidden' } mt-4 absolute border-box gap-2 text-right text-xl left-0 w-full p-4 flex-col bg-white dark:bg-zinc-950`}>
+          {linksInNavMobile.map((e,i) => (
+            <Link key={i} href={e.href}><li onClick={() => setShow(false)} className="dark:bg-zinc-900 bg-zinc-200  px-4 py-2 rounded-xl">{e.title}</li></Link>
+          ))}
         </ul>
         </div>
       </div>

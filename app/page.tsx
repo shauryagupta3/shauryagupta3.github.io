@@ -81,12 +81,12 @@ export default async function Home() {
                 </p>
               </div>
               <div className="self-center">
-              <Image
-                src={weatherAppImg}
-                alt="weather app image"
-                height={100}
-                width={300}
-              />
+                <Image
+                  src={weatherAppImg}
+                  alt="weather app image"
+                  height={100}
+                  width={300}
+                />
               </div>
             </div>{" "}
             <div className="flex flex-col text-center sm:text-start sm:flex-row p-2 justify-between border rounded-xl border-zinc-500">
@@ -119,13 +119,13 @@ export default async function Home() {
                   layout user can input number of lifts and floors they want.
                 </p>
               </div>
-            <div className="self-center">
-              <Image
-                src={LiftSimulation}
-                alt="weather app image"
-                height={100}
-                width={300}
-              />
+              <div className="self-center">
+                <Image
+                  src={LiftSimulation}
+                  alt="weather app image"
+                  height={100}
+                  width={300}
+                />
               </div>
             </div>{" "}
             <div className="flex flex-col text-center sm:text-start sm:flex-row p-2 justify-between border rounded-xl border-zinc-500">
@@ -157,12 +157,12 @@ export default async function Home() {
                 </p>
               </div>
               <div className="self-center">
-              <Image
-                src={Blackjack}
-                alt="weather app image"
-                height={100}
-                width={300}
-              />
+                <Image
+                  src={Blackjack}
+                  alt="weather app image"
+                  height={100}
+                  width={300}
+                />
               </div>
             </div>{" "}
           </div>
@@ -173,11 +173,11 @@ export default async function Home() {
         >
           <h1 className="text-3xl mb-2 font-semibold">About</h1>
           <p>
-            Hello! I&apos;m Shaurya, a BSc CS student at Delhi University. My
+            Hello! I&apos;m Shaurya, a CS student at Delhi University. My
             coding journey spans languages like JS, TS, Golang, C++, Rust and
             Java. Proficient in databases, different web frameworks and RESTful
-            APIs. I like to solve problems and learn more about Data
-            Structures and Algorithms as well.
+            APIs. I like to solve problems and learn more about Data Structures
+            and Algorithms as well.
           </p>
         </div>
       </div>

@@ -25,7 +25,7 @@ export default function BlogPagination({
   const end = start + Number(per_page);
   const data = allBlogs.slice(start, end);
   return (
-    <div className="flex py-4 flex-col justify-center items-center">
+    <div className="flex mx-2 py-4 flex-col justify-center items-center">
       <ul>
         {data.map((e) => (
           <li key={e.id} className="border rounded-lg my-2 p-6">
