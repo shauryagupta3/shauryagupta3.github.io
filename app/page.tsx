@@ -1,7 +1,4 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import weatherAppImg from "../public/static/images/weather-app.png";
-import LiftSimulation from "../public/static/images/lift-simulation.png";
-import Blackjack from "../public/static/images/blackjack.png";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -82,7 +79,7 @@ export default async function Home() {
               </div>
               <div className="self-center">
                 <Image
-                  src={weatherAppImg}
+                  src={`/static/images/weather-app.png`}
                   alt="weather app image"
                   height={100}
                   width={300}
@@ -121,7 +118,7 @@ export default async function Home() {
               </div>
               <div className="self-center">
                 <Image
-                  src={LiftSimulation}
+                  src={`/static/images/lift-simulation.png`}
                   alt="weather app image"
                   height={100}
                   width={300}
@@ -158,7 +155,7 @@ export default async function Home() {
               </div>
               <div className="self-center">
                 <Image
-                  src={Blackjack}
+                  src={`/static/images/blackjack.png`}
                   alt="weather app image"
                   height={100}
                   width={300}
@@ -173,11 +170,11 @@ export default async function Home() {
         >
           <h1 className="text-3xl mb-2 font-semibold">About</h1>
           <p>
-            Hello! I&apos;m Shaurya, a CS student at Delhi University. My
-            coding journey spans languages like JS, TS, Golang, C++, Rust and
-            Java. Proficient in databases, different web frameworks and RESTful
-            APIs. I like to solve problems and learn more about Data Structures
-            and Algorithms as well.
+            Hello! I&apos;m Shaurya, a CS student at Delhi University. My coding
+            journey spans languages like JS, TS, Golang, C++, Rust and Java.
+            Proficient in databases, different web frameworks and RESTful APIs.
+            I like to solve problems and learn more about Data Structures and
+            Algorithms as well.
           </p>
         </div>
       </div>
