@@ -76,7 +76,7 @@ React.useEffect( () => {
     return () => window.removeEventListener('scroll', handleScroll)
 })
 
-  return (<nav className={`w-full flex justify-center sticky z-50 ${visible ? 'top-0' : ''} bg-inherit transition duration-1000 ease-in-out`}>
+  return (<nav className={`w-full flex justify-center sticky z-50 ${visible ? 'top-0' : ''} bg-white dark:bg-zinc-950 transition duration-1000 ease-in-out`}>
     <div className="flex justify-between w-[95%] m-4 p-2 items-center border rounded-lg border-zinc-600">
       <Link href={"/"} className="text-xl">
         <h2 className="font-semibold">Home</h2>

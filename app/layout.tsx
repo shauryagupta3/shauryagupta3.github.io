@@ -35,9 +35,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <div className="flex flex-col justify-between min-h-screen">
           <Navbar />
           {children}
           <Footer />
+          </div>
         </ThemeProvider>
       </body>
     </html>
