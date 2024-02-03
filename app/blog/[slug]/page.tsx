@@ -24,6 +24,8 @@ export default async function Slug({ params }: { params: { slug: string } }) {
       </Head>
       <div className="max-w-[90%] sm:max-w-screen-md">
         <article className="prose px-2 prose-sm lg:prose-xl dark:prose-invert">
+          <h1>{blog.title}</h1>
+          <p className="font-bold underline italic">By {blog.author} published on {blog.date}</p>
           <Markdown>{blog.content}</Markdown>
         </article>
       </div>

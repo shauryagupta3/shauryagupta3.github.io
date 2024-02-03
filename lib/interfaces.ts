@@ -1,5 +1,6 @@
 export interface BlogPostInterface {
   title: string;
+  author:string
   date: string;
   id: string;
   slug: string;
