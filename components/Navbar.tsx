@@ -31,7 +31,7 @@ const linksInNav: { title: string; href: string; description: string }[] = [
   },
   {
     title: "Resume",
-    href: "/static/cv_wo_ph",
+    href: "/static/cv_wo_ph.pdf",
     description: "Latest resume",
   },
 ];

@@ -25,7 +25,7 @@ const projects: project[] = [
     title: "Weather App",
     code_link: "https://shauryagupta3.github.io",
     repo_link: "https://github.com/shauryagupta3/weather-app",
-    img_url: "/static/images/weather-app",
+    img_url: "/static/images/weather-app.png",
     description:
       "A weather forecast app made with React which uses Open weather api for fetching data. Implemented pagination in search bar for better user experience. Gives user detailed information about current weather along with forecast for upcoming week.",
   },
@@ -33,7 +33,7 @@ const projects: project[] = [
     title: "Lift Simulation",
     code_link: "https://shauryagupta3.github.io/lift-simulation-js/",
     repo_link: "https://github.com/shauryagupta3/lift-simulation-js",
-    img_url: "/static/images/lift-simulation",
+    img_url: "/static/images/lift-simulation.png",
     description:
       "A visual simulation of how lift systems works doing calls to system. Maintaining queues for management of lifts and vivid animations for better visual representation.",
   },
@@ -41,7 +41,7 @@ const projects: project[] = [
     title: "BlackJack",
     code_link: "https://blackjack-js.pages.dev/",
     repo_link: "https://github.com/shauryagupta3/blackjack-game",
-    img_url: "/static/images/lift-simulation",
+    img_url: "/static/images/blackjack.png",
     description:
       "Classic blackjack game implemented with visual cards to be played. Also added a casino like betting system if player wins bet is 2x else bet is gone.",
   },
@@ -79,7 +79,7 @@ export default async function Home() {
                   </Link>
                 </Button>
                 <Button variant={"outline"} size={"icon"} asChild>
-                  <Link href={"/static/cv_wo_ph"}>
+                  <Link href={"/static/cv_wo_ph.pdf"}>
                     <FileIcon className="h-6 w-6" />
                   </Link>
                 </Button>
@@ -90,7 +90,7 @@ export default async function Home() {
             id="techstack"
             className="w-full max-h-1/3 rounded-xl p-4 border border-zinc-600"
           >
-            {" "}
+            {" "}lift-simulation
             <h1 className=" text-4xl font-semibold text-center pb-4">
               Tech Stack
             </h1>{" "}
