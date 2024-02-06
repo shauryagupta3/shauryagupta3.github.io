@@ -90,7 +90,7 @@ export default async function Home() {
             id="techstack"
             className="w-full max-h-1/3 rounded-xl p-4 border border-zinc-600"
           >
-            {" "}lift-simulation
+            {" "}
             <h1 className=" text-4xl font-semibold text-center pb-4">
               Tech Stack
             </h1>{" "}
