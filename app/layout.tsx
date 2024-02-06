@@ -7,7 +7,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Home",
+  title: "Shaurya Gupta",
   description: "all rights reserved by Tm 2042",
 };
 
