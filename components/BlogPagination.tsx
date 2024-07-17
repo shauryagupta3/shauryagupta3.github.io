@@ -14,7 +14,7 @@ export default function BlogPagination({
 }) {
   const searchParams = useSearchParams();
   const page = searchParams.get("page") ?? `1`;
-  const per_page = 5;
+  const per_page = 3;
   const totalPages: number = Math.ceil(allBlogs.length / per_page);
   if (Number(page) > totalPages) {
     return notFound();
