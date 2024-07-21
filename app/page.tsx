@@ -79,7 +79,7 @@ export default async function Home() {
                   </Link>
                 </Button>
                 <Button variant={"outline"} size={"icon"} asChild>
-                  <Link href={"/static/cv_wo_ph.pdf"}>
+                  <Link href={"/static/resume.pdf"}>
                     <FileIcon className="h-6 w-6" />
                   </Link>
                 </Button>
